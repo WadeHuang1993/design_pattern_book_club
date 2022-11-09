@@ -61,5 +61,30 @@ class ShoppingCartTest extends TestCase
                 self::assertEquals(0, $deliveryFee);
             }
         );
+
+        $this->specify(
+            '
+            在 2022 聖誕夜購買一個「聖誕節禮品」；
+            購物車計算運費時；
+            限時活動購買任一「聖誕節禮品」則免運，運費為 0 元
+            ',
+            function () {
+                /** @given 在 2022 聖誕夜購買一個「聖誕節禮品」 */
+                $product = [
+                    'productCode' => 'christmas_gift',
+                    'name' => '迷你聖誕樹',
+                    'price' => 100,
+                ];
+                $shoppingCart = new ShoppingCart();
+                $shoppingCart->addItem($product);
+                $shoppingCart->currentDate = '2022/12/24'; // 購買日為聖誕節
+
+                /** @when 購物車計算運費時； */
+                $deliveryFee = $shoppingCart->calDeliveryFee();
+
+                /** @then 限時活動購買任一「聖誕節禮品」則免運，運費為 0 元 */
+                self::assertEquals(0, $deliveryFee);
+            }
+        );
     }
 }

@@ -4,8 +4,9 @@ namespace Tests\Feature\Ch1;
 
 class ShoppingCart
 {
-
-    private $products;
+    public $products;
+    // 消費日期
+    public $currentDate;
 
     public function __construct()
     {
@@ -29,7 +30,8 @@ class ShoppingCart
     public function calDeliveryFee()
     {
         // 有抵達免運嗎？
-        if ($this->products->sum('price') >= 1000) {
+        $deliverFeeStrategy = DeliverFeeStrategyFactory::create($this);
+        if ($deliverFeeStrategy->isFree($this)) {
             return 0;
         }
 

@@ -7,7 +7,7 @@ namespace Tests\Feature\Ch1;
  *
  * 這是系統最預設的免運判斷邏輯，只要滿千就免運
  */
-class DeliverFeeStrategyDefault
+class DeliverFeeStrategyDefault implements DeliverFeeStrategy
 {
 
     public function __construct()
