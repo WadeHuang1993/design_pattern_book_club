@@ -15,7 +15,8 @@ class EmailSenderTest extends TestCase
             '
         全站會員的信箱，
         透過信件服務寄送信件，
-        系統寄出信件，並標記信件已送出
+        系統排除信件格式不正確的信件，
+        寄出信件規格正確的信件，且標記已寄送，
         ',
             function () {
                 /** @given 全站會員的信箱 */
@@ -37,11 +38,17 @@ class EmailSenderTest extends TestCase
                 ];
                 $result = EmailSender::send($userEmails, $emailContent);
 
-                /** @then 系統寄出信件，並標記信件已送出 */
+                /** @then 系統排除信件格式不正確的信件 */
+                $userEmailAlreadySent = array_filter($result, function ($userEmail) {
+                    return $userEmail['isSent'] === false;
+                });
+                self::assertCount(1, $userEmailAlreadySent);
+
+                /** @then 寄出信件規格正確的信件，且標記已寄送 */
                 $userEmailAlreadySent = array_filter($result, function ($userEmail) {
                     return $userEmail['isSent'] === true;
                 });
-                self::assertCount(2, $userEmailAlreadySent);
+                self::assertCount(1, $userEmailAlreadySent);
             }
         );
     }
