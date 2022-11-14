@@ -272,10 +272,13 @@ https://github.com/WadeHuang1993/design_pattern_book_club/pull/7/commits/5c04957
 
 #### 5. 演算法依賴
 演算法在開發和復用時常常被擴展、優化和替代。  
-依賴於某個特定演算法的對像在使得系統在演算法發生變化時不得跟著不變化。  
-因有可能發生變化的演算法應單獨封裝起來  
+依賴於某個特定演算法的物件在使得系統在演算法發生變化時不得跟著不變化。  
+因此將**可能發生變化的演算法應單獨封裝起來**  
 設計模式: Builder (3.2), Iterator (5.4), Strategy (5.9), Template Method (5.10),
 Visitor (5.11)
+
+<img width="848" alt="image" src="https://user-images.githubusercontent.com/61677399/201615199-e924fc85-7e57-4bbc-aa2b-450dcb91f120.png">
+<img width="839" alt="image" src="https://user-images.githubusercontent.com/61677399/201615461-882ab67f-fbff-4523-8ae3-a6d7e82a745a.png">
 
 #### 6. 緊藕合
 緊合的類很難獨立地被復用，因為它們互相依賴的。  
@@ -286,6 +289,12 @@ Visitor (5.11)
 設計模式使用抽象合和分層技術來提高系統的鬆散藕合性。  
 設計模式：Abstract Factory (3.1), Command (5.2), Facade (4.5), Mediator (5.5),
 Observer (5.7) , Chain of Responsibility (5.1).
+
+購物車重構前：
+https://github.com/WadeHuang1993/design_pattern_book_club/pull/7/commits/5c0495746d6642608d626881c0fa3d8869b24b97#diff-886c2ba55a1f1d7a21d9a53bbba1a75398bf961297c95874d2471836f36552de
+
+購物車重構後：
+<img width="1135" alt="image" src="https://user-images.githubusercontent.com/61677399/201566011-911f4f3b-67dc-4d97-b694-46ac9d7a1ba2.png">
 
 
 #### 7. 通過生成子類來擴充功能
