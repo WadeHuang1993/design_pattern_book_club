@@ -235,6 +235,11 @@ Facade 模式描述了用物件表示完整的子系統; Flyweight 模式描述�
 要避免這種情況，應該間接地創建物件。  
 設計模式：Abstract Factory (3.1),Factory Method (3.3), Prototype (3.4).
 
+![image](https://user-images.githubusercontent.com/61677399/201588254-9aa9e105-545f-480d-ba6e-d7acf442649a.png)
+
+<img width="1135" alt="image" src="https://user-images.githubusercontent.com/61677399/201566011-911f4f3b-67dc-4d97-b694-46ac9d7a1ba2.png">
+
+
 #### 2. **對特殊操作的依賴**
 當你為請求指定―個特殊的操作時，完成該請求的方式就固定下來了。  
 為避免把求代碼寫死，你將可以在編譯時刻或運行時刻很方便地改變響應求的方法。  
