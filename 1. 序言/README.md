@@ -230,20 +230,33 @@ Facade 模式描述了用物件表示完整的子系統; Flyweight 模式描述�
 ```
 
 #### 1.  **顯式地指定一個類來創建對像在創建物件**
-指定類別名將使你受到特定實現的約東，而不是特定介面的約東。  
-這會限制未來的變化的靈活性，也會造成系統依賴的混亂。  
+指定類別名將**使系統受到特定實現的約東，而不是特定介面的約東**。  
+這**會限制未來的變化的靈活性**，也會造成系統依賴的混亂。  
 要避免這種情況，應該間接地創建物件。  
 設計模式：Abstract Factory (3.1),Factory Method (3.3), Prototype (3.4).
 
-![image](https://user-images.githubusercontent.com/61677399/201588254-9aa9e105-545f-480d-ba6e-d7acf442649a.png)
+購物車運費範例（重構前）：
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/61677399/201600439-e8d92a6f-7dad-4c55-b67f-ef8bfc77430a.png">
 
-<img width="1135" alt="image" src="https://user-images.githubusercontent.com/61677399/201566011-911f4f3b-67dc-4d97-b694-46ac9d7a1ba2.png">
+購物車運費範例（重構後）：  
+<img width="786" alt="image" src="https://user-images.githubusercontent.com/61677399/201600659-aebfa2dd-3475-46bc-8c31-84632fd749a7.png">  
+<img width="863" alt="image" src="https://user-images.githubusercontent.com/61677399/201600898-e85e31e2-ee5d-4a96-a3eb-8ab733d668ac.png">
 
 
 #### 2. **對特殊操作的依賴**
 當你為請求指定―個特殊的操作時，完成該請求的方式就固定下來了。  
-為避免把求代碼寫死，你將可以在編譯時刻或運行時刻很方便地改變響應求的方法。  
+為避免把求代碼寫死，你將**可以在編譯時刻或運行時刻很方便地改變響應求的方法**。  
 設計模式：Chain of Resposibility (5.1),Command (5.2)。
+
+購物車範例：
+![image](https://user-images.githubusercontent.com/61677399/201588254-9aa9e105-545f-480d-ba6e-d7acf442649a.png)
+
+購物車重構前：
+https://github.com/WadeHuang1993/design_pattern_book_club/pull/7/commits/5c0495746d6642608d626881c0fa3d8869b24b97#diff-886c2ba55a1f1d7a21d9a53bbba1a75398bf961297c95874d2471836f36552de
+
+購物車重構後：
+<img width="1135" alt="image" src="https://user-images.githubusercontent.com/61677399/201566011-911f4f3b-67dc-4d97-b694-46ac9d7a1ba2.png">
+
 
 #### 3. **對硬體和軟件平台的依賴**
 外部的 **操作系統介面** 和**應用編程介面 (API)** 在不同的軟硬體平台上是不同的。  
@@ -295,3 +308,4 @@ Observer (5.7), Strategy (5.9).
 而沒有對於商業類庫就有這種情況，或者可能對類的任何改變會要求修改許多已存在的其他子類。  
 設計模式提供在這些情況下對類進行修改的方法。  
 設計模式：Adapter (4.1),Decorator (4.4), Visitor (5.11).
+
