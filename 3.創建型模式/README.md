@@ -27,7 +27,9 @@ use PaymentClients\NewebPayClient;public function getEcPayPaymentClient($roomId)
 - Factory Method
 
 ```php
-use PaymentClients\NewebPayClient;interface PaymentClientFactory {
+use PaymentClients\NewebPayClient;
+
+interface PaymentClientFactory {
    /**
    * 建立第三方金流的 Client
    * @return PaymentClient
