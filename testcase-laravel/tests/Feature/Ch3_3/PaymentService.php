@@ -4,9 +4,7 @@ namespace Tests\Feature\Ch3_3;
 
 use Tests\Feature\Ch3_3\PaymentClientFactories\ConvenienceStorePaymentClientFactory;
 use Tests\Feature\Ch3_3\PaymentClientFactories\CreditCardPaymentClientFactory;
-use Tests\Feature\Ch3_3\PaymentClients\EcPayClient;
 use Tests\Feature\Ch3_3\PaymentClients\LinePayClient;
-use Tests\Feature\Ch3_3\PaymentClients\NewebPayClient;
 
 class PaymentService
 {
@@ -21,10 +19,10 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $paymentClient = (new ConvenienceStorePaymentClientFactory)->create();
+            $paymentClient = (new ConvenienceStorePaymentClientFactory)->initClient();
         }
         if ($paymentMethod === 'CreditCard') {
-            $paymentClient = (new CreditCardPaymentClientFactory)->create();
+            $paymentClient = (new CreditCardPaymentClientFactory)->initClient();
         }
         if ($paymentMethod === 'LinePay') {
             $config = [
@@ -49,10 +47,10 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $paymentClient = (new ConvenienceStorePaymentClientFactory)->create();
+            $paymentClient = (new ConvenienceStorePaymentClientFactory)->initClient();
         }
         if ($paymentMethod === 'CreditCard') {
-            $paymentClient = (new CreditCardPaymentClientFactory)->create();
+            $paymentClient = (new CreditCardPaymentClientFactory)->initClient();
         }
         if ($paymentMethod === 'LinePay') {
             $config = [

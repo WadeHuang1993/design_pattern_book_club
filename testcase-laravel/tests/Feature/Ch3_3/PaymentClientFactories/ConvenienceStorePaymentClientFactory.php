@@ -5,7 +5,7 @@ namespace Tests\Feature\Ch3_3\PaymentClientFactories;
 use Tests\Feature\Ch3_3\PaymentClients\EcPayClient;
 use Tests\Feature\Ch3_3\PaymentClients\PaymentClient;
 
-class ConvenienceStorePaymentClientFactory implements PaymentClientFactory
+class ConvenienceStorePaymentClientFactory extends PaymentClientFactory
 {
     /**
      * 初始化超商付款的第三方金流 Client
