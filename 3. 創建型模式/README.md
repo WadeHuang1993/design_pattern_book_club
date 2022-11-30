@@ -9,7 +9,9 @@
  * 建立藍新金流的 Client
  * @return PaymentClient
  */
-use PaymentClients\NewebPayClient;public function getEcPayPaymentClient($roomId): PaymentClient
+use PaymentClients\NewebPayClient;
+
+public function getEcPayPaymentClient($roomId): PaymentClient
 {
 	 // 從 DB 取得第三方金流的的金鑰
         $config = PaymentMethodConfigRepository::getItem(
