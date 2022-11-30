@@ -20,12 +20,7 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $config = [
-                'hashIv' => 'hashIv-EcPay-123',
-                'hashVI' => 'hashVI-EcPay-123',
-            ];
-
-            $paymentClient = new NewebPayClient($config);
+            $paymentClient = ConvenienceStorePaymentClientFactory::create();
         }
         if ($paymentMethod === 'CreditCard') {
             $config = [
@@ -58,12 +53,7 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $config = [
-                'hashIv' => 'hashIv-EcPay-123',
-                'hashVI' => 'hashVI-EcPay-123',
-            ];
-
-            $paymentClient = new NewebPayClient($config);
+            $paymentClient = ConvenienceStorePaymentClientFactory::create();
         }
         if ($paymentMethod === 'CreditCard') {
             $config = [
