@@ -3,6 +3,7 @@
 namespace Tests\Feature\Ch3_3;
 
 use Tests\Feature\Ch3_3\PaymentClientFactories\ConvenienceStorePaymentClientFactory;
+use Tests\Feature\Ch3_3\PaymentClientFactories\CreditCardPaymentClientFactory;
 use Tests\Feature\Ch3_3\PaymentClients\EcPayClient;
 use Tests\Feature\Ch3_3\PaymentClients\LinePayClient;
 use Tests\Feature\Ch3_3\PaymentClients\NewebPayClient;
@@ -20,15 +21,10 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $paymentClient = ConvenienceStorePaymentClientFactory::create();
+            $paymentClient = (new ConvenienceStorePaymentClientFactory)->create();
         }
         if ($paymentMethod === 'CreditCard') {
-            $config = [
-                'hashIv' => 'hashIv-EcPay-123',
-                'hashVI' => 'hashVI-EcPay-123',
-            ];
-
-            $paymentClient = new EcPayClient($config);
+            $paymentClient = (new CreditCardPaymentClientFactory)->create();
         }
         if ($paymentMethod === 'LinePay') {
             $config = [
@@ -53,15 +49,10 @@ class PaymentService
     {
         // 因應付款方式建立第三方金流 Client
         if ($paymentMethod === 'CVS') {
-            $paymentClient = ConvenienceStorePaymentClientFactory::create();
+            $paymentClient = (new ConvenienceStorePaymentClientFactory)->create();
         }
         if ($paymentMethod === 'CreditCard') {
-            $config = [
-                'hashIv' => 'hashIv-EcPay-123',
-                'hashVI' => 'hashVI-EcPay-123',
-            ];
-
-            $paymentClient = new EcPayClient($config);
+            $paymentClient = (new CreditCardPaymentClientFactory)->create();
         }
         if ($paymentMethod === 'LinePay') {
             $config = [
